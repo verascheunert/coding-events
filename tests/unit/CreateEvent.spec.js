@@ -33,7 +33,27 @@ describe("CreateEvent", () => {
 
   test("it should contain an input field for the title with the placeholder 'Add a Title'", () => {
     const wrapper = mount(CreateEvent);
+
     const titleInput = wrapper.get("input[name='title']");
+
     expect(titleInput.attributes("placeholder")).toBe("Add a Title");
+  });
+
+  test("it should have an event data property", () => {
+    const wrapper = mount(CreateEvent);
+
+    expect(wrapper.vm.event).toEqual({
+      title: ""
+    });
+  });
+
+  test("it should bind the event title to the user input", () => {
+    const wrapper = mount(CreateEvent);
+
+    const titleInput = wrapper.get("input[name='title']");
+
+    titleInput.setValue("JS Pair Programming Session");
+
+    expect(wrapper.vm.event.title).toBe("JS Pair Programming Session");
   });
 });
