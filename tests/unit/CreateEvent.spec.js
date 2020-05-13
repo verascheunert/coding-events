@@ -84,7 +84,7 @@ describe("CreateEvent", () => {
     createEvent.mockReset();
     const wrapper = mount(CreateEvent);
 
-    // User inputs a titöle
+    // User inputs a title
     wrapper.get("input[name='title']").setValue("Go to the zoo");
 
     // User hits submit
